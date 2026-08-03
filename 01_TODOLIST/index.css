@@ -1,0 +1,200 @@
+/*   /////////MY CSS CODE/////////.  */
+
+/* *{
+    margin: 0px;
+    padding: 0px;
+}
+h1{
+   background-color: chocolate; 
+   text-align: center;
+   margin-top: 50px;
+}
+h2{
+    padding-top: 20px;
+    text-align: center;
+}
+#A{
+    margin-top: 70px;
+    width: 100vw;
+    height:14vh;
+    background-color: cadetblue;
+}
+#input_box{
+    margin-left:500px;
+    margin-top: 10px;
+    width:56vw;
+    height:14vh;
+}
+input{
+    padding-left: 20px;
+    height:40px;
+    width: 350px;
+    border-radius:10px;
+    border: transparent;
+}
+
+#LIST_OF_TASk{
+    margin-top:40px;
+    background-color: coral;
+}
+
+#butn{
+    align-self: center;
+    margin-left: 10px;
+    height:40px;
+    width: 130px;
+    border-radius:10px;
+    border: transparent;
+    color:cornsilk;
+    background-color:green;
+    font-size:22px;
+}
+#butn:hover{
+    box-shadow: 10px,red;
+} */
+
+
+
+
+/*      //////AI CSS CODE////////////////////     */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+h1{
+    color: white;
+    font-size: 45px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+#A{
+    width: 500px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    margin-bottom: 25px;
+}
+
+#A h2{
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+#input_box{
+    display: flex;
+    gap: 10px;
+}
+
+#input_value{
+    flex: 1;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#input_value:focus{
+    border-color: #667eea;
+}
+
+#butn{
+    padding: 12px 25px;
+    border: none;
+    background: #667eea;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#butn:hover{
+    background: #4f63d6;
+    transform: scale(1.05);
+}
+
+#LIST_OF_TASk{
+    width: 500px;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    min-height: 250px;
+}
+
+#LIST_OF_TASk h2{
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Styling for tasks added dynamically */
+#LIST_OF_TASk div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f4f4;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-top: 12px;
+}
+
+#LIST_OF_TASk p{
+    font-size: 17px;
+    color: #333;
+    word-break: break-word;
+}
+
+#LIST_OF_TASk button{
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#LIST_OF_TASk button:hover{
+    background: darkred;
+}
+
+@media (max-width: 600px){
+
+    #A,
+    #LIST_OF_TASk{
+        width: 95%;
+    }
+
+    #input_box{
+        flex-direction: column;
+    }
+
+    #butn{
+        width: 100%;
+    }
+
+    h1{
+        font-size: 35px;
+    }
+} 

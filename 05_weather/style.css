@@ -1,0 +1,281 @@
+/* ============================================================
+   WEATHER CHECKER — "Dusk Sky Glass" theme
+   Display: Space Grotesk | Body: Inter | Data: JetBrains Mono
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap');
+
+:root {
+  --sky-top: #0c1730;
+  --sky-mid: #1c3357;
+  --sky-bottom: #3d5d8a;
+  --gold: #f5b942;
+  --gold-soft: #ffd98a;
+  --glass: rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-hover: rgba(255, 255, 255, 0.11);
+  --text-primary: #f4f7fb;
+  --text-secondary: #a9b8d1;
+  --shadow: rgba(3, 8, 20, 0.45);
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-full: 999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.25rem;
+  padding: 3rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+
+  /* Dusk sky gradient backdrop */
+  background: radial-gradient(ellipse at 20% -10%, rgba(245, 185, 66, 0.18), transparent 55%),
+              linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 55%, var(--sky-bottom) 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Faint drifting cloud texture, purely atmospheric */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05), transparent 40%),
+              radial-gradient(circle at 10% 70%, rgba(255,255,255,0.04), transparent 35%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------------- Heading ---------------- */
+
+h1 {
+  position: relative;
+  z-index: 1;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--text-primary);
+  text-shadow: 0 2px 24px rgba(245, 185, 66, 0.25);
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin: 0.85rem auto 0;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+}
+
+/* ---------------- Search bar (centered) ---------------- */
+/* Works even without a wrapper div: input + button are styled
+   as a single joined pill using negative margin. For a perfectly
+   seamless pill, wrap them in <div class="search-box"> — see note. */
+
+input[type="text"],
+input {
+  z-index: 1;
+  width: min(320px, 70vw);
+  padding: 1rem 1.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full) 0 0 var(--radius-full);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  outline: none;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+}
+
+input:focus {
+  background: var(--glass-hover);
+  box-shadow: 0 0 0 3px rgba(245, 185, 66, 0.3);
+}
+
+button {
+  z-index: 1;
+  padding: 1rem 1.6rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: #1a1300;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  border: none;
+  border-radius: 0 var(--radius-full) var(--radius-full) 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.25s ease, filter 0.2s ease;
+  box-shadow: 0 8px 24px rgba(245, 185, 66, 0.25);
+  margin-left: -1px; /* fuses the two elements into one pill */
+}
+
+button:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 10px 28px rgba(245, 185, 66, 0.4);
+}
+
+button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 2px;
+}
+
+/* If you add the wrapper (recommended — see note below chat),
+   this centers + groups the pair perfectly as one unit. */
+.search-box {
+  z-index: 1;
+  display: flex;
+  width: min(420px, 90vw);
+}
+.search-box input { flex: 1; border-radius: var(--radius-full) 0 0 var(--radius-full); }
+.search-box button { border-radius: 0 var(--radius-full) var(--radius-full) 0; }
+
+/* ---------------- Results: glass panes ---------------- */
+
+#main_cont {
+  z-index: 1;
+  width: min(720px, 92vw);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+#main_cont > div {
+  flex: 1 1 260px;
+  position: relative;
+  padding: 1.75rem 1.5rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 20px 45px var(--shadow);
+  overflow: hidden;
+  animation: rise 0.5s ease both;
+}
+
+/* light catching the top edge of the "glass" */
+#main_cont > div::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+}
+
+#main_cont > div h2 {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.1);
+}
+
+#main_cont > div h2:last-child { border-bottom: none; }
+
+/* First card: city name gets hero treatment, temp gets mono readout */
+#main_cont > div:first-child h2:first-child {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: none;
+}
+
+#main_cont > div:first-child h2:nth-child(2) {
+  text-transform: capitalize;
+  color: var(--gold-soft);
+  font-style: italic;
+}
+
+#main_cont h2 {
+  font-family: 'JetBrains Mono', monospace;
+}
+#main_cont > div:first-child h2:first-child,
+#main_cont > div:first-child h2:nth-child(2) {
+  font-family: 'Space Grotesk', sans-serif; /* keep name/description in display face */
+}
+
+/* ---------------- Instrument strip (#wind) ---------------- */
+
+#wind {
+  z-index: 1;
+  width: min(720px, 92vw);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+#wind h2 {
+  flex: 1 1 180px;
+  text-align: center;
+  padding: 1rem 1.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: rise 0.5s ease both;
+}
+
+#wind h2:nth-child(1) { animation-delay: 0.05s; }
+#wind h2:nth-child(2) { animation-delay: 0.1s; }
+#wind h2:nth-child(3) { animation-delay: 0.15s; }
+
+/* ---------------- Motion ---------------- */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main_cont > div,
+  #wind h2 {
+    animation: none;
+  }
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 480px) {
+  body { gap: 1.5rem; padding: 2.25rem 1.25rem; }
+  input, .search-box { width: 100%; }
+  #main_cont > div { flex: 1 1 100%; }
+  #wind h2 { flex: 1 1 100%; }
+}

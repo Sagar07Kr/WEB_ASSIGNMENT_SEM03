@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #eef2f7;
+}
+
+h1{
+    margin-bottom: 25px;
+    color: #222;
+    letter-spacing: 2px;
+}
+
+#main_container{
+    width: 420px;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+#input_box{
+    margin-bottom: 20px;
+}
+
+#input_box input{
+    width: 100%;
+    height: 70px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: #f5f5f5;
+    text-align: right;
+    font-size: 32px;
+    padding-right: 15px;
+    color: #222;
+}
+
+#lower_container{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Number Section */
+
+#charecter{
+    flex: 3;
+}
+
+.digits3{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.dig{
+    flex: 1;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4a90e2;
+    color: white;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.dig:hover{
+    background: #357bd8;
+    transform: scale(1.05);
+}
+
+.dig:active{
+    transform: scale(0.95);
+}
+
+/* Symbol Section */
+
+#symbol{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.syb{
+    display: flex;
+    gap: 10px;
+}
+
+.ops{
+    flex: 1;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ff8c42;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.ops:hover{
+    background: #f37021;
+    transform: scale(1.05);
+}
+
+.ops:active{
+    transform: scale(0.95);
+}
+
+/* Equal Button */
+
+.syb:last-child .ops{
+    width: 100%;
+    background: #28a745;
+}
+
+.syb:last-child .ops:hover{
+    background: #218838;
+}
+
+/* Responsive */
+
+@media(max-width:500px){
+
+    #main_container{
+        width: 95%;
+    }
+
+    #lower_container{
+        gap: 10px;
+    }
+
+    .digits3,
+    .syb{
+        gap: 10px;
+    }
+
+    .dig,
+    .ops{
+        height: 55px;
+        font-size: 20px;
+    }
+
+    #input_box input{
+        height: 60px;
+        font-size: 28px;
+    }
+}
