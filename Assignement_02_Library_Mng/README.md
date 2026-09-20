@@ -218,7 +218,6 @@ Open [http://localhost:5000](http://localhost:5000)
 
 | Role | Email | Password |
 |------|-------|----------|
-| Admin | admin@example.com | Admin@123 |
 | Member | john@example.com | Member@123 |
 | Member | priya@example.com | Member@123 |
 
