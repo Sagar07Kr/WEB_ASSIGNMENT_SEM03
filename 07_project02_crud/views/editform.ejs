@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<form action="/update/<%=data._id%>" method="POST">
+      
+    <input type="text" name="name" value="<%=data.name%>">
+    <input type="email" name="email" value="<%=data.email%>">
+    <input type="text" name="batch" value="<%=data.batch%>">
+    <input type="text" name="post" value="<%=data.post%>">
+    <input type="number" name="phoneno" value="<%=data.phoneno%>">
+    <button type="submit">EDIT</button>
+</form>
+
+</body>
+</html>

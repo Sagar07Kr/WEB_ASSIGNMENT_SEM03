@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Details of all members</h1>
+
+    <div>
+        <% data.forEach((ele)=>{%>
+
+            <div>
+                <p> <%=ele.name%></p>
+                <p> <%=ele.batch%></p>
+                <p> <%=ele.email%></p>
+                <p> <%=ele.phoneno%></p>
+                <p> <%=ele.post%></p>
+                <a href="/edit/<%=ele._id%>">EDIT</a>
+                <a href="/delete/<%=ele._id%>">DELETE</a>
+            </div>
+
+            <h1><br></h1>
+
+        <%})%>
+    </div>
+    
+</body>
+</html>
